@@ -64,13 +64,23 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun app(){
     if(DataManager.isDataLoaded.value ){
-        QuotesListScreen(data = DataManager.data ) {
-
+        if (DataManager.currentPage.value == Pages.LISTING){
+            QuotesListScreen(data = DataManager.data ) {
+                DataManager.switchPages(it)
+            }
+            }
+            else{
+                DataManager.currentQuote?.let { QuotesDetail(quote = it) }
+            }
         }
 
-    }
-}
 
+    }
+
+enum class Pages{
+    LISTING,
+    DETAIL
+}
 
 
 

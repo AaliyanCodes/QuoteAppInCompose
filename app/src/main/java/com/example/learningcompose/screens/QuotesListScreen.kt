@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.example.learningcompose.Models.Quote
 
 @Composable
-fun QuotesListScreen(data: Array<Quote>, onClick: () -> Unit) {
+fun QuotesListScreen(data: Array<Quote>, onClick: (quote: Quote) -> Unit) {
     Column {
         Text(text = "Quotes App",
             textAlign = TextAlign.Center,
@@ -21,8 +21,6 @@ fun QuotesListScreen(data: Array<Quote>, onClick: () -> Unit) {
                 .fillMaxWidth(1f),
             style = MaterialTheme.typography.bodyLarge,
         )
-        QuoteList(data = data){
-             onClick
-        }
+        QuoteList(data = data, onClick)
     }
 }

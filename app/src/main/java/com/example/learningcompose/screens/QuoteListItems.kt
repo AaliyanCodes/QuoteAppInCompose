@@ -25,9 +25,9 @@ import com.example.learningcompose.Models.Quote
 
 
 @Composable
-fun QuoteListItem(quote : Quote, onClick : ()-> Unit){
+fun QuoteListItem(quote : Quote, onClick : (quote : Quote)-> Unit){
     Card(    modifier = Modifier.padding(8.dp)
-        .clickable{onClick()}
+        .clickable{onClick(quote )}
         ) {
         Row(modifier = Modifier.padding(16.dp)) {
             Image(imageVector = Icons.Filled.FormatQuote,
